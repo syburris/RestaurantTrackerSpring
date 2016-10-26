@@ -13,6 +13,7 @@ public interface RestaurantRepository extends CrudRepository<Restaurant, Integer
     public List<Restaurant> findByLocation(String location);
     public List<Restaurant> findByUser(User user);
 
+
     @Query("SELECT r FROM Restaurant r WHERE r.location LIKE ?1%")
     public List<Restaurant> searchLocation(String location);
 }
