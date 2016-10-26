@@ -1,0 +1,46 @@
+/*created this with http://www.bestcssbuttongenerator.com/*/
+
+.myButton {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #458ac7), color-stop(1, #2b9e87));
+	background:-moz-linear-gradient(top, #458ac7 5%, #2b9e87 100%);
+	background:-webkit-linear-gradient(top, #458ac7 5%, #2b9e87 100%);
+	background:-o-linear-gradient(top, #458ac7 5%, #2b9e87 100%);
+	background:-ms-linear-gradient(top, #458ac7 5%, #2b9e87 100%);
+	background:linear-gradient(to bottom, #458ac7 5%, #2b9e87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#458ac7', endColorstr='#2b9e87',GradientType=0);
+	background-color:#458ac7;
+	-moz-border-radius:21px;
+	-webkit-border-radius:21px;
+	border-radius:21px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:12px;
+	font-style:italic;
+	padding:8px 20px;
+	text-decoration:none;
+	text-shadow:4px 3px 2px #2f6627;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2b9e87), color-stop(1, #458ac7));
+	background:-moz-linear-gradient(top, #2b9e87 5%, #458ac7 100%);
+	background:-webkit-linear-gradient(top, #2b9e87 5%, #458ac7 100%);
+	background:-o-linear-gradient(top, #2b9e87 5%, #458ac7 100%);
+	background:-ms-linear-gradient(top, #2b9e87 5%, #458ac7 100%);
+	background:linear-gradient(to bottom, #2b9e87 5%, #458ac7 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b9e87', endColorstr='#458ac7',GradientType=0);
+	background-color:#2b9e87;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+/*Trying to center things on my own*/
+.centered {
+    display: flex;
+    justify-content: center;
+}

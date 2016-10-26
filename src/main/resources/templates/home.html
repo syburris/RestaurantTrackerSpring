@@ -1,53 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" type="text/css" href="button.css">
 <head>
     <meta charset="UTF-8">
     <title>Restaurant Tracker</title>
 </head>
 <body>
-{{^user}}
-<form action="/login" method="get">
-    <button type="submit">Login</button>
-</form>
-{{/user}}
-
-{{#user}}
-<form action="/logout" method="post">
-    <button type="submit">Logout</button>
-</form>
-<br>
-
-<form action="/" method="get">
-    <input type="text" name="search" placeholder="Search location"/>
-    <button type="submit">Search</button>
-</form>
-
-<form action="/create-restaurant" method="post">
-    <input type="text" name="name" placeholder="Name"/>
-    <input type="text" name="location" placeholder="Location"/>
-    <select name="rating">
-        <option selected disabled>Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-    <input type="text" name="comment" placeholder="Comment"/>
-    <button type="submit">Submit Restaurant</button>
-</form>
-<br>
-<br>
-<ol>
-    {{#restaurants}}
-    <li><b>{{name}}</b> - {{location}} - {{rating}}/5 - {{comment}}
-        <form action="/delete-restaurant" method="post" style="display: inline-block">
-            <input type="hidden" name="id" value="{{id}}"/>
-            <button type="submit">Delete Restaurant</button>
+    {{^user}}
+        <form action="/login" method="get">
+            <button class="myButton" type="submit">login</button>
         </form>
-    </li>
-    {{/restaurants}}
-</ol>
+    {{/user}}
+
+    {{#user}}
+        <div class="centered">
+            <form action="/logout" method="post">
+                <button class="myButton" type="submit">logout</button>
+            </form>
+        </div>
+            <br>
+        <form action="/" method="get">
+            <div class="centered">
+                <input type="text" name="search" placeholder="Search location"/>
+            </div>
+                <div class="centered">
+                    <button class="myButton" type="submit">search</button>
+                </div>
+        </form>
+    <div class="centered">
+        <form action="/create-restaurant" method="post">
+            <input type="text" name="name" placeholder="Name"/>
+            <input type="text" name="location" placeholder="Location"/>
+                <select name="rating">
+                    <option selected disabled>Rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            <input type="text" name="comment" placeholder="Comment"/>
+                <button class="myButton" type="submit">submit</button>
+        </form>
+    </div>
+            <br>
+            <br>
+        <div class="centered">
+    <table>
+            <tr>
+                <th><strong>Name</strong></th>
+                <th><strong>Location</strong></th>
+                <th><strong>Rating</strong></th>
+                <th><strong>Comment</strong></th>
+                <th></th>
+                <th></th>
+            </tr>
+        {{#restaurants}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{location}}</td>
+                <td>{{rating}}</td>
+                <td>{{comment}}</td>
+                <td>
+                    <form action="/edit" method="get" style="display: inline-block">
+                        <input type="hidden" name="id" value="{{id}}"/>
+                        <button type="submit" class="myButton">edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/delete-restaurant" method="post" style="display: inline-block">
+                        <input type="hidden" name="id" value="{{id}}"/>
+                        <button type="submit" class="myButton">delete</button>
+                    </form>
+                </td>
+            </tr>
+        {{/restaurants}}
+    </table>
+        </div>
 {{/user}}
 </body>
 </html>

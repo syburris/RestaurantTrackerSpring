@@ -84,4 +84,33 @@ public class RestaurantTrackerController {
         restaurants.delete(id);
         return "redirect:/";
     }
+
+    @RequestMapping(path = "/edit", method = RequestMethod.GET)
+    public String getEdit(int id, HttpSession session, Model model) throws Exception {
+        String username = (String) session.getAttribute("username");
+        User user = users.findByName(username);
+        Restaurant restaurant = restaurants.findOne(id);
+        if (user == null) {
+            throw new Exception("user not logged in");
+        }
+        model.addAttribute("restaurant", restaurant);
+        model.addAttribute("user", user);
+        return "edit";
+    }
+
+    @RequestMapping(path = "/edit", method = RequestMethod.POST)
+    public String edit(int id, String location, String name, HttpSession session, int rating, String comment) throws Exception {
+        String username = (String) session.getAttribute("username");
+        User user = users.findByName(username);
+        if (user == null) {
+            throw new Exception("Uh, uh, uh!");
+        }
+        Restaurant restaurant = restaurants.findOne(id);
+        restaurant.setLocation(location);
+        restaurant.setLocation(name);
+        restaurant.setRating(rating);
+        restaurant.setComment(comment);
+        restaurants.save(restaurant);
+        return "redirect:/";
+    }
 }
